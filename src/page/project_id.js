@@ -24,36 +24,35 @@ export default function ProjectID() {
   /*************************************************************** */
   // GET Image
   useEffect(() => {
-    const getgallery = async () => {
-      axios
-        .get(`https://isethailand.org/tassa/server/getgallery.php`)
-        .then((response) => {
-          gallery = response.data;
-          console.log(gallery);
-          galleryFilter();
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    };
     getgallery();
-  }, []);
-  ///////////////////////////////////////////////////////////////////////
-  useEffect(() => {
-    const getdataroyal = async () => {
-      axios
-        .get("https://isethailand.org/tassa/server/getdataroyal.php/")
-        .then((response) => {
-          data = response.data;
-          console.log(data);
-          searchFilter();
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    };
     getdataroyal();
   }, []);
+  const getgallery = async () => {
+    await axios
+      .get(`https://isethailand.org/tassa/server/getgallery.php`)
+      .then((response) => {
+        gallery = response.data;
+        console.log(gallery);
+        galleryFilter();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+  const getdataroyal = async () => {
+    await axios
+      .get("https://isethailand.org/tassa/server/getdataroyal.php/")
+      .then((response) => {
+        data = response.data;
+        console.log(data);
+        searchFilter();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+
   //   *********************Search Key Enter*************
   const searchFilter = (e) => {
     newdata = data.filter((data) => {
@@ -128,12 +127,11 @@ export default function ProjectID() {
   //////
   const gimage = (
     <>
-    
       {newgallery.map((i, k) => (
         <div className="col-12 col-md-4 col-lg-4 my-2" key={k++}>
           <img
             src={i.royal_imgname}
-            style={{height: 220 }}
+            style={{ height: 220 }}
             width="100%"
             data-lightboxjs="lightbox1"
             quality="100%"

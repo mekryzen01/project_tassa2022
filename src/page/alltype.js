@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "../../css/css.css";
+import "../css/css.css";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 let data = [];
@@ -68,7 +68,7 @@ export default function Alltype() {
           ? filteredResults.map((item, index) => {
               return (
                 <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3" key={index++}>
-                  <Link to={`/Project/${item.royal_id}`}>
+                  <Link to={`/tassa2022/โครงการที่/${item.royal_id}`}>
                     <div className="card shadow bg-body" id="hover1">
                       <div className="card-image-top">
                         <img
@@ -94,7 +94,7 @@ export default function Alltype() {
               return (
                 // <Fade direction="up">
                 <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3" key={index++}>
-                  <Link to={`/Project/${item2.royal_id}`}>
+                  <Link to={`/tassa2022/โครงการที่/${item2.royal_id}`}>
                     <div className="card shadow bg-body" id="hover1">
                       <div className="card-image-top">
                         <img
@@ -161,8 +161,10 @@ export default function Alltype() {
           </div>
         </div>
         <Fade direction="right">
-          <div className="row">{showcontent()}</div>
+          <div className="row ">{showcontent()}</div>
         </Fade>
+        <br />
+        <hr />
       </div>
     </>
   );

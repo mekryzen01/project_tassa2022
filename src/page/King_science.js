@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../css/css.css";
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
@@ -8,25 +8,9 @@ import { Fade } from "react-awesome-reveal";
 import axios from "axios";
 import { useState } from "react";
 import Slider from "react-slick";
-import {
-  GoogleMap,
-  useJsApiLoader,
-  Marker,
-  LoadScript,
-} from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, MarkerF } from "@react-google-maps/api";
 
-const containerStyle = {
-  width: "600px",
-  height: "600px",
-};
 
-const center = [
-  { lat: 15.87, lng: 100.9925 },
-  {
-    lat: 17.5152121,
-    lng: 104.064524,
-  },
-];
 
 let data = [];
 const filter_menu = [
@@ -86,7 +70,7 @@ const renderListOfdata = (data) => {
   return filter_menu.map((data) => (
     <>
       <div className="col-12 col-md-4 col-lg-4 my-3">
-        <Link to={`/Alltype/${data.id}`}>
+        <Link to={`/tassa2022/ประเภทโครงการ/${data.id}`}>
           <div className="card shadow bg-body" id="hover1">
             <div className="card-body">
               <div className="row">
@@ -114,29 +98,41 @@ export default function Kingscience() {
     callService();
   }, []);
 
+  const containerStyle = {
+    width: "600px",
+    height: "600px",
+  };
+
+  const center = { lat: 15.87, lng: 100.9925 };
+
+
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyA_DeZlR7mlQPPcxK-l_GSh1hd5JoUIV0E",
   });
 
-  const onLoad = useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+  const onLoad = (marker) => {
+    console.log("marker: ", marker);
+  };
+  // const onLoad = useCallback(function callback(map) {
+  //   const bounds = new window.google.maps.LatLngBounds(center);
+  //   map.fitBounds(bounds);
 
-    setMap(map);
-  }, []);
+  //   setMap(map);
+  // }, []);
 
-  const onUnmount = useCallback(function callback(map) {
-    setMap(null);
-  }, []);
+  // const onUnmount = useCallback(function callback(map) {
+  //   setMap(null);
+  // }, []);
 
   const settings = {
     dots: true,
     infinite: false,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 3,
-    initialSlide: 0,
+    initialSlide: 1,
     responsive: [
       {
         breakpoint: 1024,
@@ -170,7 +166,8 @@ export default function Kingscience() {
         .get(`https://isethailand.org/tassa/server/getdataroyal.php`)
         .then((response) => {
           data = response.data;
-          console.log(response.data); //ตรวจสอบ
+          console.log(data);
+          setMap(data) //ตรวจสอบ
           random();
         })
         .catch((err) => {
@@ -215,6 +212,14 @@ export default function Kingscience() {
     </AutoplaySlider>
   );
   //************************************** */
+
+  function onError() {
+    <img
+      src="https://isethailand.org/tassa2022/image/logo/imgerror.png"
+      alt=""
+      srcset=""
+    />;
+  }
   return (
     <>
       {slider}
@@ -240,20 +245,17 @@ export default function Kingscience() {
         <Slider {...settings}>
           {save.map((i, index) => {
             return (
-              <div className="col-12 col-md-4 col-lg-4 mx-2" key={index++}>
-                <Link to={`/Project/${i.royal_id}`}>
-                  <div className="card shadow bg-body" id="hover1">
+              <div className="col-12 col-md-4  mx-5" key={index++} >
+                <Link to={`/tassa2022/โครงการที่/${i.royal_id}`}>
+                  <div className="card shadow bg-body" id="hover1" style={{ width: 360 }}>
                     <div className="card-image-top">
                       <img
                         className="top-radius"
                         src={i.img_1}
-                        onError={() =>
-                          (this.src =
-                            "https://isethailand.org/tassa2022/image/logo/imgerror.png")
-                        }
+                        onError={onError()}
                         alt=""
-                        width="100%"
-                        height="300px"
+                        width="360px"
+                        height="350px"
                       />
                     </div>
                     <div className="card-body">
@@ -268,30 +270,30 @@ export default function Kingscience() {
             );
           })}
         </Slider>
-        <div className="row mt-2">
-          <div className="row justify-conent-center">
+
+        <div className="row justify-conent-center my-5">
+          <div className="text-center">
+            <h4>สถานที่ตั้งโครงการพระราชดำริ</h4>
             {isLoaded ? (
-              <LoadScript>
-                <GoogleMap
-                  mapContainerStyle={containerStyle}
-                  center={center}
-                  zoom={5}
-                  onLoad={onLoad}
-                  onUnmount={onUnmount}
-                >
-                  <Marker
-                    icon={
-                      "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
-                    }
-                    position={center[1]}
-                  />
-                </GoogleMap>
-              </LoadScript>
+              <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={center}
+                zoom={5}
+                onLoad={onLoad}
+              >
+                {data.map((item) => (
+                  <MarkerF
+                    key={item.royal_id}
+                    onLoad={onLoad} position={{ lat: parseFloat(item.latitude), lng: parseFloat(item.longitude) }} />
+                ))}
+              </GoogleMap>
             ) : (
               <></>
             )}
           </div>
         </div>
+
+        <hr />
       </div>
     </>
   );

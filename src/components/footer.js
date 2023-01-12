@@ -1,12 +1,14 @@
+import '../css/css.css';
 export default function Footter() {
   return (
     <>
-      <div
+    <div className="footer">
+    <div
         className="text-center text-lg-start text-white"
         style={{ backgroundColor: "#2196F3" }}
       >
         <div className="p-4 pb-0">
-          <section className="">
+          {/* <section className="">
             <div className="row">
               <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                 <h6 className="text-uppercase mb-4 font-weight-bold">
@@ -83,9 +85,9 @@ export default function Footter() {
                 </p>
               </div>
             </div>
-          </section>
+          </section> */}
 
-          <hr className="my-3" />
+          {/* <hr className="my-3" /> */}
 
           <section className="p-3 pt-0">
             <div className="row d-flex align-items-center">
@@ -99,6 +101,8 @@ export default function Footter() {
           </section>
         </div>
       </div>
+    </div>
+     
     </>
   );
 }
