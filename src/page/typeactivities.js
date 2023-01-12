@@ -11,7 +11,7 @@ export default function Typeactivities() {
     console.log(dataA)
     useEffect(() => {
         getdataActivities()
-    }, [])
+    },[])
 
     async function getdataActivities() {
         await axios.get("https://isethailand.org/tassa/server/getActivities.php").then((response) => {
@@ -42,7 +42,6 @@ export default function Typeactivities() {
         }
         console.log(newdata);
     };
-
     return (
         <>
             <div className="container">
@@ -63,19 +62,13 @@ export default function Typeactivities() {
                                                 </div>
                                             </Link>
                                         </div>
-
                                     </div>
                                 </div>
                             </Fade></>
-
                         )
-
                     })}
-
-
                 </div>
             </div>
-
         </>
     )
 }

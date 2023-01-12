@@ -10,8 +10,6 @@ import { useState } from "react";
 import Slider from "react-slick";
 import { GoogleMap, useJsApiLoader, MarkerF } from "@react-google-maps/api";
 
-
-
 let data = [];
 const filter_menu = [
   {
@@ -99,13 +97,11 @@ export default function Kingscience() {
   }, []);
 
   const containerStyle = {
-    width: "600px",
-    height: "600px",
+    width: "100%",
+    height: "999px",
   };
 
   const center = { lat: 15.87, lng: 100.9925 };
-
-
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -167,7 +163,7 @@ export default function Kingscience() {
         .then((response) => {
           data = response.data;
           console.log(data);
-          setMap(data) //ตรวจสอบ
+          setMap(data); //ตรวจสอบ
           random();
         })
         .catch((err) => {
@@ -245,9 +241,13 @@ export default function Kingscience() {
         <Slider {...settings}>
           {save.map((i, index) => {
             return (
-              <div className="col-12 col-md-4  mx-5" key={index++} >
+              <div className="col-12 col-md-4  mx-5" key={index++}>
                 <Link to={`/tassa2022/โครงการที่/${i.royal_id}`}>
-                  <div className="card shadow bg-body" id="hover1" style={{ width: 360 }}>
+                  <div
+                    className="card shadow bg-body"
+                    id="hover1"
+                    style={{ width: 360 }}
+                  >
                     <div className="card-image-top">
                       <img
                         className="top-radius"
@@ -275,18 +275,28 @@ export default function Kingscience() {
           <div className="text-center">
             <h4>สถานที่ตั้งโครงการพระราชดำริ</h4>
             {isLoaded ? (
-              <GoogleMap
-                mapContainerStyle={containerStyle}
-                center={center}
-                zoom={5}
-                onLoad={onLoad}
-              >
-                {data.map((item) => (
-                  <MarkerF
-                    key={item.royal_id}
-                    onLoad={onLoad} position={{ lat: parseFloat(item.latitude), lng: parseFloat(item.longitude) }} />
-                ))}
-              </GoogleMap>
+              <>
+                <div className="row justify-content-center">
+                  <GoogleMap
+                    mapContainerStyle={containerStyle}
+                    center={center}
+                    zoom={5}
+                    onLoad={onLoad}
+                  >
+                    {data.map((item) => (
+                      <MarkerF
+                        key={item.royal_id}
+                        label={item.royal_name}
+                        onLoad={onLoad}
+                        position={{
+                          lat: parseFloat(item.latitude),
+                          lng: parseFloat(item.longitude),
+                        }}
+                      />
+                    ))}
+                  </GoogleMap>
+                </div>
+              </>
             ) : (
               <></>
             )}
