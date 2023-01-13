@@ -28,9 +28,9 @@ export default function nav() {
               <Link to="/tassa2022/ศาสตร์พระราชา" className="nav-link">
                 ศาสตร์ของพระราชา
               </Link>
-              <Link to="/tassa2022/วิจัยและพัฒนา" className="nav-link">
+              <a href="https://isethailand.org/tassa/admin/admin_page/list_project.php" target="_blank" className="nav-link">
                 งานวิจัยและพัฒนา
-              </Link>
+              </a>
               <NavDropdown title="สื่อเผยแพร่งาน SEP" id="basic-nav-dropdown">
                 <NavDropdown.Item target="_blank" href="https://isethailand.org/tassa/admin/listasset.php?id=01&fbclid=IwAR0vFhUeEV2MYyE1SVNinEem7c2Pek0PI06byGy5h4eL1pBS3t_zxS1hbuM">Ebook</NavDropdown.Item>
                 <NavDropdown.Item target="_blank" href="https://isethailand.org/tassa/admin/listasset.php?id=02&fbclid=IwAR3wAIPS63zsVv97s3WAAXLKNFm4Z0JBSBskXRuTDnnO7RLuCJObs7aPfwA">
