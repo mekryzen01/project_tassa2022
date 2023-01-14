@@ -20,14 +20,14 @@ export default function Router() {
       <Nav />
       <Routes>
         <Route path="/tassa2022/" element={<Main />} />
-        <Route path="/tassa2022/ศาสตร์พระราชา" element={<Kingscience />} />
-        <Route path="/tassa2022/วิจัยและพัฒนา" element={<Research />} />
-        <Route path="/tassa2022/ติดต่อสถาบัน" element={<Institute />} />
+        <Route path="/tassa2022/King" element={<Kingscience />} />
+        <Route path="/tassa2022/Research" element={<Research />} />
+        <Route path="/tassa2022/Institute" element={<Institute />} />
         <Route path="/tassa2022/SEP" element={<SEP />} />
-        <Route path="/tassa2022/ประเภทโครงการ/:id" element={<Alltype />} />
-        <Route path="/tassa2022/โครงการที่/:royal_id" element={<ProjectID />} />
-        <Route path="/tassa2022/ประเภทกิจกรรม/:typeact_id" element={<Typeactivities />} />
-        <Route path="/tassa2022/ประเภทกิจกรรม/:typeact_name/:docno" element={<Activity />} />
+        <Route path="/tassa2022/TypeProject/:id" element={<Alltype />} />
+        <Route path="/tassa2022/Project/:royal_id" element={<ProjectID />} />
+        <Route path="/tassa2022/TypeActivities/:typeact_id" element={<Typeactivities />} />
+        <Route path="/tassa2022/Activites/:typeact_name/:docno" element={<Activity />} />
       </Routes>
       <Footer />
     </div>

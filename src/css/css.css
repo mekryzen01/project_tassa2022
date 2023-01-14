@@ -335,6 +335,10 @@ h2 span {
   left: 0;
   bottom: 0;
   width: 100%;
-
+  color: white;
+  text-align: center;
+  height: 50px;
+  font-weight: bold;
+  font-size: 18px;
 
 }

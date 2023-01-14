@@ -68,14 +68,14 @@ const renderListOfdata = (data) => {
   return filter_menu.map((data) => (
     <>
       <div className="col-12 col-md-4 col-lg-4 my-3">
-        <Link to={`/tassa2022/ประเภทโครงการ/${data.id}`}>
-          <div className="card shadow bg-body" id="hover1">
+        <Link to={`/tassa2022/TypeProject/${data.id}`}>
+          <div className="card shadow bg-body" id="hover1" style={{height: "200px"}}>
             <div className="card-body">
-              <div className="row">
-                <div className="col-7">
+              <div className="row justify-content-center">
+                <div className="col-7 mt-2">
                   <img src={data.img} alt="" width="75%" />
                 </div>
-                <div className="col-5">
+                <div className="col-5 mt-3">
                   <p id="centertext">{data.name}</p>
                 </div>
               </div>
@@ -90,9 +90,9 @@ const renderListOfdata = (data) => {
 export default function Kingscience() {
   const [save, Setsave] = useState([]);
   const [map, setMap] = useState(null);
-  console.log(save);
+  // console.log(save);
   useEffect(() => {
-    console.log(filter_menu);
+    // console.log(filter_menu);
     callService();
   }, []);
 
@@ -109,7 +109,7 @@ export default function Kingscience() {
   });
 
   const onLoad = (marker) => {
-    console.log("marker: ", marker);
+    // console.log("marker: ", marker);
   };
   // const onLoad = useCallback(function callback(map) {
   //   const bounds = new window.google.maps.LatLngBounds(center);
@@ -162,12 +162,12 @@ export default function Kingscience() {
         .get(`https://isethailand.org/tassa/server/getdataroyal.php`)
         .then((response) => {
           data = response.data;
-          console.log(data);
+          // console.log(data);
           setMap(data); //ตรวจสอบ
           random();
         })
         .catch((err) => {
-          console.error(err); //ตรวจสอบ
+          // console.error(err); //ตรวจสอบ
         });
     });
   }
@@ -242,7 +242,7 @@ export default function Kingscience() {
           {save.map((i, index) => {
             return (
               <div className="col-12 col-md-4  mx-5" key={index++}>
-                <Link to={`/tassa2022/โครงการที่/${i.royal_id}`}>
+                <Link to={`/tassa2022/Project/${i.royal_id}`}>
                   <div
                     className="card shadow bg-body"
                     id="hover1"
@@ -276,7 +276,7 @@ export default function Kingscience() {
             <h4>สถานที่ตั้งโครงการพระราชดำริ</h4>
             {isLoaded ? (
               <>
-                <div className="row justify-content-center">
+                <div className="row justify-content-center mb-5">
                   <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={center}
@@ -302,8 +302,6 @@ export default function Kingscience() {
             )}
           </div>
         </div>
-
-        <hr />
       </div>
     </>
   );

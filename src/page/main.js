@@ -8,7 +8,7 @@ import '../css/css.css'
 export default function Main() {
     const [dataActivities, setdataActivities] = useState([])
 
-    console.log(dataActivities)
+    // console.log(dataActivities)
 
     useEffect(() => {
         getActivities()
@@ -36,7 +36,7 @@ export default function Main() {
                     </div>
                    {dataActivities.map((item, index) => (
                         <div className="col-12 col-md-3 col-lg-3 text-center my-3" key={index}>
-                            <Link to={`/tassa2022/ประเภทกิจกรรม/${item.typeact_id}`}>
+                            <Link to={`/tassa2022/TypeActivities/${item.typeact_id}`}>
                                 <div className="card shadow bg-body" id="hover1">
                                     <div className="card-body">    
                                     <div className="row justify-content-center">

@@ -10,10 +10,10 @@ let newgallery = []
 let gallery = []
 export default function Activity() {
     let { typeact_name, docno } = useParams();
-    console.log(typeact_name, docno)
+    // console.log(typeact_name, docno)
     const [dataA, setDataa] = useState([])
     const [showImage, setShowImage] = useState([]);
-    console.log(showImage)
+    // console.log(showImage)
     useEffect(() => {
         getdataActivities()
         getgallery()
@@ -23,7 +23,7 @@ export default function Activity() {
         await axios.get("https://isethailand.org/tassa/server/getActivities.php").then((response) => {
             data = response.data
             searchFilter()
-            console.log(newdata)
+            // console.log(newdata)
         })
     }
     const getgallery = async () => {
@@ -31,11 +31,11 @@ export default function Activity() {
             .get(`https://isethailand.org/tassa/server/getimageactivities.php`)
             .then((response) => {
                 gallery = response.data;
-                console.log(gallery);
+                // console.log(gallery);
                 galleryFilter();
             })
             .catch((err) => {
-                console.error(err);
+                // console.error(err);
             });
     };
     const searchFilter = (e) => {
@@ -58,11 +58,11 @@ export default function Activity() {
                 },
             ]);
         }
-        console.log(newdata);
+        // console.log(newdata);
     };
     const galleryFilter = (e) => {
         newgallery = gallery.filter((gallery) => {
-            console.log(gallery);
+            // console.log(gallery);
             return gallery.docno === docno;
         });
         for (let j = 0; j < newgallery.length; j++) {
@@ -74,7 +74,7 @@ export default function Activity() {
                 },
             ]);
         }
-        console.log(newgallery);
+        // console.log(newgallery);
     };
 
     function cut(c) {

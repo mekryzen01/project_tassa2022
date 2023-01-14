@@ -8,7 +8,7 @@ export default function Typeactivities() {
     const typeact_id = useParams()
     let id = typeact_id.typeact_id
     const [dataA, setDataa] = useState([])
-    console.log(dataA)
+    // console.log(dataA)
     useEffect(() => {
         getdataActivities()
     },[])
@@ -17,7 +17,7 @@ export default function Typeactivities() {
         await axios.get("https://isethailand.org/tassa/server/getActivities.php").then((response) => {
             data = response.data
             searchFilter()
-            console.log(newdata)
+            // console.log(newdata)
         })
     }
     const searchFilter = (e) => {
@@ -40,7 +40,7 @@ export default function Typeactivities() {
                 },
             ]);
         }
-        console.log(newdata);
+        // console.log(newdata);
     };
     return (
         <>
@@ -56,7 +56,7 @@ export default function Typeactivities() {
                                             <b style={{ fontSize: "20px" }}>{item.title}</b>
                                             <br />
                                             <hr />
-                                            <Link to={`/tassa2022/ประเภทกิจกรรม/${item.typeact_name}/${item.docno}`}>
+                                            <Link to={`/tassa2022/Activites/${item.typeact_name}/${item.docno}`}>
                                                 <div className="text-center">
                                                     <h5>อ่านเพิ่มเติม</h5>
                                                 </div>

@@ -20,12 +20,13 @@ export default function nav() {
               />
             </Link>
           </Navbar.Brand>
-          <Navbar.Collapse >
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
             <Nav
               className="me-auto nav-links justify-content-end"
               style={{ width: "100%" }}
             >
-              <Link to="/tassa2022/ศาสตร์พระราชา" className="nav-link">
+              <Link to="/tassa2022/King" className="nav-link">
                 ศาสตร์ของพระราชา
               </Link>
               <a href="https://isethailand.org/tassa/admin/admin_page/list_project.php" target="_blank" className="nav-link">
@@ -41,7 +42,7 @@ export default function nav() {
                   วีดีทัศน์
                 </NavDropdown.Item>
               </NavDropdown>
-              <Link to="/tassa2022/ติดต่อสถาบัน" className="nav-link">
+              <Link to="/tassa2022/Institute" className="nav-link">
                 สถาบันเศรษกิจพอเพียง
               </Link>
               <a

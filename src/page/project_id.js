@@ -15,12 +15,12 @@ export default function ProjectID() {
   const royal_id = useParams();
   let id = royal_id.royal_id;
   let rid = royal_id.royal_id;
-  console.log(id);
+  // console.log(id);
 
   const [showData, setShowData] = useState([]);
-  console.log(showData)
+  // console.log(showData)
   const [showImage, setShowImage] = useState([]);
-  console.log(showImage)
+  // console.log(showImage)
   /*************************************************************** */
   // GET Image
   useEffect(() => {
@@ -32,11 +32,11 @@ export default function ProjectID() {
       .get(`https://isethailand.org/tassa/server/getgallery.php`)
       .then((response) => {
         gallery = response.data;
-        console.log(gallery);
+        // console.log(gallery);
         galleryFilter();
       })
       .catch((err) => {
-        console.error(err);
+        // console.error(err);
       });
   };
   const getdataroyal = async () => {
@@ -44,11 +44,11 @@ export default function ProjectID() {
       .get("https://isethailand.org/tassa/server/getdataroyal.php/")
       .then((response) => {
         data = response.data;
-        console.log(data);
+        // console.log(data);
         searchFilter();
       })
       .catch((err) => {
-        console.error(err);
+        // console.error(err);
       });
   };
 
@@ -85,12 +85,12 @@ export default function ProjectID() {
         },
       ]);
     }
-    console.log(newdata);
+    // console.log(newdata);
   };
 
   const galleryFilter = (e) => {
     newgallery = gallery.filter((gallery) => {
-      console.log(gallery);
+      // console.log(gallery);
       return gallery.royal_id === rid;
     });
     for (let j = 0; j < newgallery.length; j++) {
@@ -102,7 +102,7 @@ export default function ProjectID() {
         },
       ]);
     }
-    console.log(newgallery);
+    // console.log(newgallery);
   };
 
   //Split Data //
@@ -243,7 +243,7 @@ export default function ProjectID() {
                 <img src={item.infographic} alt="" width="100%" />
               </div>
             </div>
-            <div className="row mt-2">
+            <div className="row my-5 ">
               <div className="card ">
                 <div className="card-body">
                   <div className="card-title text-center">
@@ -261,6 +261,7 @@ export default function ProjectID() {
             </div>
           </>
         ))}
+      <br className="my-5" />
       </div>
     </>
   );

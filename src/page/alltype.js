@@ -10,9 +10,9 @@ let newdata = [];
 export default function Alltype() {
   ///Params
   const id = useParams();
-  console.log(id);
+  // console.log(id);
   const dataid = id.id;
-  console.log(dataid);
+  // console.log(dataid);
   ////State///////
   const [showData, setShowData] = useState([]);
 
@@ -29,7 +29,7 @@ export default function Alltype() {
           searchFilter();
         })
         .catch((err) => {
-          console.error(err);
+          // console.error(err);
         });
     };
     getdataroyal();
@@ -59,7 +59,7 @@ export default function Alltype() {
         },
       ]);
     }
-    console.log(newdata);
+    // console.log(newdata);
   };
   const showcontent = () => {
     return (
@@ -68,12 +68,12 @@ export default function Alltype() {
           ? filteredResults.map((item, index) => {
               return (
                 <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3" key={index++}>
-                  <Link to={`/tassa2022/โครงการที่/${item.royal_id}`}>
+                  <Link to={`/tassa2022/Project/${item.royal_id}`}>
                     <div className="card shadow bg-body" id="hover1">
                       <div className="card-image-top">
                         <img
                           className="top-radius"
-                          src={item.img_1}
+                          src={item.img_1 || item.img_2 || item.img_3 || item.img_4 || item.img_5}
                           alt=""
                           width="100%"
                           height="300px"
@@ -94,14 +94,14 @@ export default function Alltype() {
               return (
                 // <Fade direction="up">
                 <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3" key={index++}>
-                  <Link to={`/tassa2022/โครงการที่/${item2.royal_id}`}>
-                    <div className="card shadow bg-body" id="hover1">
+                  <Link to={`/tassa2022/Project/${item2.royal_id}`}>
+                    <div className="card shadow bg-body" id="hover1" style={{ width: 360 }}>
                       <div className="card-image-top">
                         <img
                           className="top-radius"
                           src={item2.img_1}
                           
-                          onerror={ () => this.src ='https://isethailand.org/tassa2022/image/logo/imgerror.png'}
+                          onerror={ () => this.src ='https://isethailand.org/tassa/image/logo/imageerorr.png'}
                           alt=""
                           width="100%"
                           height="300px"
@@ -125,7 +125,7 @@ export default function Alltype() {
 
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
-    console.log(searchValue);
+    // console.log(searchValue);
     if (searchInput !== "") {
       const filteredData = newdata.filter((item) => {
         return Object.values(item)
@@ -134,10 +134,10 @@ export default function Alltype() {
           .includes(searchInput.toLowerCase());
       });
       setFilteredResults(filteredData);
-      console.log(filteredData);
+      // console.log(filteredData);
     } else {
       setFilteredResults(newdata);
-      console.log(newdata);
+      // console.log(newdata);
     }
   };
 
@@ -161,7 +161,7 @@ export default function Alltype() {
           </div>
         </div>
         <Fade direction="right">
-          <div className="row ">{showcontent()}</div>
+          <div className="row mb-5 ">{showcontent()}</div>
         </Fade>
         <br />
         <hr />
