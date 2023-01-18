@@ -7,6 +7,7 @@ import { Fade } from "react-awesome-reveal";
 let data = [];
 let newdata = [];
 
+
 export default function Alltype() {
   ///Params
   const id = useParams();
@@ -19,21 +20,29 @@ export default function Alltype() {
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchInput, setSearchInput] = useState("");
 
+  // async function getcoverimg() {
+  //   await axios.get("https://isethailand.org/tassa/server/getcoverimg.php").then((res) => {
+  //     imgnew = res.data
+  //     searchFilterimg()
+
+  //   })
+  // }
   //Get API ROYAL
   useEffect(() => {
-    const getdataroyal = async () => {
-      axios
-        .get(`https://isethailand.org/tassa/server/getdataroyal.php`)
-        .then((response) => {
-          data = response.data;
-          searchFilter();
-        })
-        .catch((err) => {
-          // console.error(err);
-        });
-    };
+    // getcoverimg()
     getdataroyal();
   }, []);
+  const getdataroyal = async () => {
+    await axios
+      .get(`https://isethailand.org/tassa/server/getdataroyal.php`)
+      .then((response) => {
+        data = response.data;
+        searchFilter();
+      })
+      .catch((err) => {
+        // console.error(err);
+      });
+  };
 
   //*********************Search Filter************* */
   const searchFilter = (e) => {
@@ -44,81 +53,71 @@ export default function Alltype() {
       setShowData([
         {
           royal_id: newdata[i].royal_id,
-          royal_name: newdata[i].royal_name,
-          type_name: newdata[i].type_name,
-          title_1: newdata[i].title_1,
-          title_2: newdata[i].title_2,
-          title_3: newdata[i].title_3,
-          title_4: newdata[i].title_4,
-          title_5: newdata[i].title_5,
-          img_1: newdata[i].img_1,
-          img_2: newdata[i].img_2,
-          img_3: newdata[i].img_3,
-          img_4: newdata[i].img_4,
-          img_5: newdata[i].img_5,
+          royal_name: newdata[i].royal_name,         
+          image_path: newdata[i].image_path,
         },
       ]);
     }
-    // console.log(newdata);
+    console.log(newdata);
   };
   const showcontent = () => {
     return (
       <>
         {searchInput.length > 1
           ? filteredResults.map((item, index) => {
-              return (
-                <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3" key={index++}>
-                  <Link to={`/tassa2022/Project/${item.royal_id}`}>
-                    <div className="card shadow bg-body" id="hover1">
-                      <div className="card-image-top">
-                        <img
-                          className="top-radius"
-                          src={item.img_1 || item.img_2 || item.img_3 || item.img_4 || item.img_5}
-                          alt=""
-                          width="100%"
-                          height="300px"
-                        />
-                      </div>
-                      <div className="card-body">
-                        <div className="card-title">
-                          <br />
-                          <p id="centertext01">{item.royal_name}</p>
-                        </div>
+            return (
+              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3" key={index++}>
+                <Link to={`/tassa2022/Project/${item.royal_id}`}>
+                  <div className="card shadow bg-body" id="hover1">
+                    <div className="card-image-top">
+                      <img
+                        className="top-radius"
+                        src={item.image_path}
+                        alt=""
+                        width="100%"
+                        height="300px"
+                      />
+
+                    </div>
+                    <div className="card-body">
+                      <div className="card-title">
+                        <br />
+                        <p id="centertext01">{item.royal_name}</p>
                       </div>
                     </div>
-                  </Link>
-                </div>
-              );
-            })
+                  </div>
+                </Link>
+              </div>
+            );
+          })
           : newdata.map((item2, index) => {
-              return (
-                // <Fade direction="up">
-                <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3" key={index++}>
-                  <Link to={`/tassa2022/Project/${item2.royal_id}`}>
-                    <div className="card shadow bg-body" id="hover1" style={{ width: 360 }}>
-                      <div className="card-image-top">
-                        <img
-                          className="top-radius"
-                          src={item2.img_1}
-                          
-                          onerror={ () => this.src ='https://isethailand.org/tassa/image/logo/imageerorr.png'}
-                          alt=""
-                          width="100%"
-                          height="300px"
-                        />
-                      </div>
-                      <div className="card-body">
-                        <div className="card-title">
-                          <br />
-                          <p id="centertext01">{item2.royal_name}</p>
-                        </div>
+            return (
+              // <Fade direction="up">
+              <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3" key={index++}>
+                <Link to={`/tassa2022/Project/${item2.royal_id}`}>
+                  <div className="card shadow bg-body" id="hover1" style={{ width: 360 }}>
+                    <div className="card-image-top">
+                      <img
+                        className="top-radius"
+                        src={item2.image_path}
+                        alt=""
+                        width="100%"
+                        height="300px"
+
+                      />
+                    </div>
+                    <div className="card-body">
+                      <div className="card-title">
+                        <br />
+                        <p id="centertext01">{item2.royal_name}</p>
                       </div>
                     </div>
-                  </Link>
-                </div>
-                // </Fade>
-              );
-            })}
+                  </div>
+                </Link>
+              </div>
+              // </Fade>
+            );
+          })}
       </>
     );
   };

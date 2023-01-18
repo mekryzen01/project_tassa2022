@@ -111,17 +111,6 @@ export default function Kingscience() {
   const onLoad = (marker) => {
     // console.log("marker: ", marker);
   };
-  // const onLoad = useCallback(function callback(map) {
-  //   const bounds = new window.google.maps.LatLngBounds(center);
-  //   map.fitBounds(bounds);
-
-  //   setMap(map);
-  // }, []);
-
-  // const onUnmount = useCallback(function callback(map) {
-  //   setMap(null);
-  // }, []);
-
   const settings = {
     dots: true,
     infinite: false,
@@ -156,6 +145,8 @@ export default function Kingscience() {
       },
     ],
   };
+
+ 
   async function callService() {
     return new Promise((resolve, reject) => {
       axios
