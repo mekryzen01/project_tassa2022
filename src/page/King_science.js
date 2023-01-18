@@ -225,7 +225,7 @@ export default function Kingscience() {
         <Fade direction="left">
           <div className="row mt-5">{renderListOfdata()}</div>
         </Fade>
-        <div class="line"></div>
+        <div className="line"></div>
         <div className="text-center">
           <h1>ตัวอย่าง โครงการพระราชดำริ</h1>
         </div>

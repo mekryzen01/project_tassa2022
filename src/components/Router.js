@@ -1,11 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Nav from "./Nav";
-
 import Research from "../page/research_and_development";
 import Institute from "../page/institution";
-
 import Footer from "./footer";
-import Project from "../page/project_id";
 import Alltype from "../page/alltype";
 import Main from "../page/main";
 import Kingscience from "../page/King_science";
@@ -18,7 +15,7 @@ export default function Router() {
   return (
     <div className="App">
       <Nav />
-      <Routes basename="/tassa2022/">
+      <Routes >
         <Route path="/tassa2022/" element={<Main />} />
         <Route path="/tassa2022/King" element={<Kingscience />} />
         <Route path="/tassa2022/Research" element={<Research />} />
