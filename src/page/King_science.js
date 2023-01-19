@@ -242,7 +242,7 @@ export default function Kingscience() {
                     <div className="card-image-top">
                       <img
                         className="top-radius"
-                        src={i.img_1}
+                        src={i.image_path}
                         onError={onError()}
                         alt=""
                         width="360px"
