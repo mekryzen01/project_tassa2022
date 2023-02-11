@@ -9,6 +9,7 @@ import axios from "axios";
 import { useState } from "react";
 import Slider from "react-slick";
 import { GoogleMap, useJsApiLoader, MarkerF } from "@react-google-maps/api";
+import ReactPlayer from 'react-player';
 
 let data = [];
 const filter_menu = [
@@ -69,7 +70,7 @@ const renderListOfdata = (data) => {
     <>
       <div className="col-12 col-md-4 col-lg-4 my-3">
         <Link to={`/tassa2022/TypeProject/${data.id}`}>
-          <div className="card shadow bg-body" id="hover1" style={{height: "200px"}}>
+          <div className="card shadow bg-body" id="hover1" style={{ height: "200px" }}>
             <div className="card-body">
               <div className="row justify-content-center">
                 <div className="col-7 mt-2">
@@ -146,7 +147,7 @@ export default function Kingscience() {
     ],
   };
 
- 
+
   async function callService() {
     return new Promise((resolve, reject) => {
       axios
@@ -207,6 +208,16 @@ export default function Kingscience() {
       srcset=""
     />;
   }
+  // const Player = () => {
+  //   return (
+  //     <ReactPlayer
+  //       url="www.isethailand.org/meta/meta1.mp4"
+  //       width="100%"
+  //       height="100%"
+  //       controls
+  //     />
+  //   )
+  // }
   return (
     <>
       {slider}
@@ -261,7 +272,9 @@ export default function Kingscience() {
             );
           })}
         </Slider>
-
+{/* <div className="row">
+{Player()}
+</div> */}
         <div className="row justify-conent-center my-5">
           <div className="text-center">
             <h4>สถานที่ตั้งโครงการพระราชดำริ</h4>
