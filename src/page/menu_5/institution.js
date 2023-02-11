@@ -1,6 +1,6 @@
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
-import "../css/css.css";
+import "../../css/css.css";
 export default function institution() {
   return (
     <>

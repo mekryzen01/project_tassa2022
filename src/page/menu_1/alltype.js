@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "../css/css.css";
+import "../../css/css.css";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 let data = [];

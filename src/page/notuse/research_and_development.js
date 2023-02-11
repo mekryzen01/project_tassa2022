@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../css/css.css";
+import "../../css/css.css";
 import { Icon } from "@iconify/react";
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";

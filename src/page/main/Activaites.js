@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import axios from "axios"
 import { useState, useEffect } from "react"
-import '../css/css.css';
+import '../../css/css.css';
 import { SlideshowLightbox } from "lightbox.js-react";
 import { Fade } from "react-awesome-reveal";
 let data = []

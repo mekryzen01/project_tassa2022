@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../css/css.css";
+import "../../css/css.css";
 import { useEffect } from "react";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";

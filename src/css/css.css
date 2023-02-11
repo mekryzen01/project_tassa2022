@@ -342,3 +342,25 @@ h2 span {
   font-size: 18px;
 
 }
+#black{
+  color: #000;
+}
+/* @media screen and (min-width: 2000px){
+  .mmss{
+  margin-left: 280px;
+}}
+@media screen and (min-width: 901px){
+  .mmss{
+  margin-left: 180px;
+}
+}
+@media screen and (max-width: 600px){
+  .mmss{
+    margin-left: 10px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .mmss{
+    margin-left: 50px;
+  }
+} */
