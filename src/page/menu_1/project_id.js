@@ -29,7 +29,7 @@ export default function ProjectID() {
   }, []);
   const getgallery = async () => {
     await axios
-      .get(`https://isethailand.org/tassa/server/getgallery.php`)
+      .get(`https://ise-thailand.org/tassa/server/getgallery.php`)
       .then((response) => {
         gallery = response.data;
         // console.log(gallery);
@@ -41,7 +41,7 @@ export default function ProjectID() {
   };
   const getdataroyal = async () => {
     await axios
-      .get("https://isethailand.org/tassa/server/getdataroyal.php/")
+      .get("https://ise-thailand.org/tassa/server/getdataroyal.php/")
       .then((response) => {
         data = response.data;
         // console.log(data);

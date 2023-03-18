@@ -14,7 +14,7 @@ export default function Typeactivities() {
     },[])
 
     async function getdataActivities() {
-        await axios.get("https://isethailand.org/tassa/server/getActivities.php").then((response) => {
+        await axios.get("https://ise-thailand.org/tassa/server/getActivities.php").then((response) => {
             data = response.data
             searchFilter()
             // console.log(newdata)
@@ -49,7 +49,7 @@ export default function Typeactivities() {
                     {newdata.map((item, index) => {
                         return (
                             <>   <Fade>
-                                <div className="col-12 col-md-4 col-lg-4" key={index}>
+                                <div className="col-12 col-md-4 col-lg-4 my-5" key={index}>
                                     <div className="card">
                                         <img src={item.img_file} alt="" width="100%" />
                                         <div className="card-body">

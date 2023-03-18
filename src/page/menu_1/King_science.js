@@ -16,52 +16,52 @@ const filter_menu = [
   {
     id: "01",
     name: "โครงการพัฒนา ด้านแหล่งน้ำ",
-    img: "https://isethailand.org/tassa/image/logo/water.png",
+    img: "https://ise-thailand.org/tassa/image/logo/water.png",
   },
   {
     id: "02",
     name: "โครงการพัฒนา ด้านการเกษตร",
-    img: "https://isethailand.org/tassa/image/logo/farm.png",
+    img: "https://ise-thailand.org/tassa/image/logo/farm.png",
   },
   {
     id: "03",
     name: "โครงการพัฒนา ด้านสิ่งแวดล้อม",
-    img: "https://isethailand.org/tassa/image/logo/natrul.png",
+    img: "https://ise-thailand.org/tassa/image/logo/natrul.png",
   },
   {
     id: "04",
     name: "โครงการพัฒนา ด้านส่งเสริมอาชีพ",
-    img: "https://isethailand.org/tassa/image/logo/creer.png",
+    img: "https://ise-thailand.org/tassa/image/logo/creer.png",
   },
   {
     id: "05",
     name: "โครงการพัฒนา ด้านสาธารณสุข",
-    img: "https://isethailand.org/tassa/image/logo/sata.png",
+    img: "https://ise-thailand.org/tassa/image/logo/sata.png",
   },
   {
     id: "06",
     name: "โครงการพัฒนา ด้านคมนาคมและสื่อสาร",
-    img: "https://isethailand.org/tassa/image/logo/commu.png",
+    img: "https://ise-thailand.org/tassa/image/logo/commu.png",
   },
   {
     id: "07",
     name: "โครงการพัฒนา สวัสดิการสังคม การศึกษา",
-    img: "https://isethailand.org/tassa/image/logo/ecadu.png",
+    img: "https://ise-thailand.org/tassa/image/logo/ecadu.png",
   },
   {
     id: "08",
     name: "โครงการพัฒนา แบบบูรณาการ และ อื่นๆ",
-    img: "https://isethailand.org/tassa/image/logo/bruu.png",
+    img: "https://ise-thailand.org/tassa/image/logo/bruu.png",
   },
   {
     id: "00",
     name: "ไม่ระบุ",
-    img: "https://isethailand.org/tassa/image/logo/dot.png",
+    img: "https://ise-thailand.org/tassa/image/logo/dot.png",
   },
   {
     id: "09",
     name: "โครงการภายใต้สถาบันเศรษฐกิจพอเพียง",
-    img: "https://isethailand.org/tassa/image/logo/logo.png",
+    img: "https://ise-thailand.org/tassa/image/logo/logo.png",
   },
 ];
 
@@ -151,7 +151,7 @@ export default function Kingscience() {
   async function callService() {
     return new Promise((resolve, reject) => {
       axios
-        .get(`https://isethailand.org/tassa/server/getdataroyal.php`)
+        .get(`https://ise-thailand.org/tassa/server/getdataroyal.php`)
         .then((response) => {
           data = response.data;
           // console.log(data);
@@ -194,16 +194,16 @@ export default function Kingscience() {
       interval={2500}
       width="75%"
     >
-      <div data-src="http://isethailand.org/tassa/image/banner/banner5.jpg" />
-      <div data-src="http://isethailand.org/tassa/image/banner/bannerRoyal.png" />
-      <div data-src="http://isethailand.org/tassa/image/banner/1.jpg" />
+      <div data-src="http://ise-thailand.org/tassa/image/banner/banner5.jpg" />
+      <div data-src="http://ise-thailand.org/tassa/image/banner/bannerRoyal.png" />
+      <div data-src="http://ise-thailand.org/tassa/image/banner/1.jpg" />
     </AutoplaySlider>
   );
   //************************************** */
 
   function onError() {
     <img
-      src="https://isethailand.org/tassa2022/image/logo/imgerror.png"
+      src="https://ise-thailand.org/tassa2022/image/logo/imgerror.png"
       alt=""
       srcset=""
     />;

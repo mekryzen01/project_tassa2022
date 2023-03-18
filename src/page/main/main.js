@@ -69,28 +69,28 @@ export default function Main() {
 
     }
     async function getActivities() {
-        await axios.get("https://isethailand.org/tassa/server/getActivities.php").then((response) => {
+        await axios.get("https://ise-thailand.org/tassa/server/getActivities.php").then((response) => {
             setdataActivities(response.data)
         })
     }
 
     async function get03() {
-        await axios.get("https://isethailand.org/tassa/server/chart03.php").then((response) => setRoyal(response.data))
+        await axios.get("https://ise-thailand.org/tassa/server/chart03.php").then((response) => setRoyal(response.data))
     }
 
 
     async function getmeta() {
-        await axios.get("https://isethailand.org/tassa/server/getmeta.php").then((response) => setMeta(response.data))
+        await axios.get("https://ise-thailand.org/tassa/server/getmeta.php").then((response) => setMeta(response.data))
     }
 
     async function getvideo() {
-        await axios.get("https://isethailand.org/tassa/server/getvideo.php").then((res) => {
+        await axios.get("https://ise-thailand.org/tassa/server/getvideo.php").then((res) => {
             setDatavideo(res.data)
         })
     }
     const getdataChatAsset = async () => {
         await axios
-            .get("https://isethailand.org/tassa/server/chart01.php")
+            .get("https://ise-thailand.org/tassa/server/chart01.php")
             .then((result) => {
                 userdata01 = result.data;
                 console.log(userdata01)
@@ -131,7 +131,7 @@ export default function Main() {
     };
     const getdataChatroyal = async () => {
         await axios
-            .get("https://isethailand.org/tassa/server/chart04.php")
+            .get("https://ise-thailand.org/tassa/server/chart04.php")
             .then((result) => {
                 userdata02 = result.data;
                 setBarmonk(userdata02);
@@ -178,7 +178,7 @@ export default function Main() {
     };
     const getdataChatres = async () => {
         await axios
-            .get("https://isethailand.org/tassa/server/chart02.php")
+            .get("https://ise-thailand.org/tassa/server/chart02.php")
             .then((result) => {
                 userdata03 = result.data;
                 setRes(userdata03);

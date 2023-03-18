@@ -18,7 +18,7 @@ export default function Router() {
     <div className="App">
       <Header/>
       <Routes >
-        <Route path="/tassa2022/" element={<Main />} />
+        <Route path="/tassa2022" element={<Main />} />
         <Route path="/tassa2022/King" element={<Kingscience />} />
         <Route path="/tassa2022/Research" element={<Research />} />
         <Route path="/tassa2022/Institute" element={<Institute />} />

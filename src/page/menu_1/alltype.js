@@ -21,7 +21,7 @@ export default function Alltype() {
   const [searchInput, setSearchInput] = useState("");
 
   // async function getcoverimg() {
-  //   await axios.get("https://isethailand.org/tassa/server/getcoverimg.php").then((res) => {
+  //   await axios.get("https://ise-thailand.org/tassa/server/getcoverimg.php").then((res) => {
   //     imgnew = res.data
   //     searchFilterimg()
 
@@ -34,7 +34,7 @@ export default function Alltype() {
   }, []);
   const getdataroyal = async () => {
     await axios
-      .get(`https://isethailand.org/tassa/server/getdataroyal.php`)
+      .get(`https://ise-thailand.org/tassa/server/getdataroyal.php`)
       .then((response) => {
         data = response.data;
         searchFilter();

@@ -20,7 +20,7 @@ export default function Activity() {
     }, [])
 
     async function getdataActivities() {
-        await axios.get("https://isethailand.org/tassa/server/getActivities.php").then((response) => {
+        await axios.get("https://ise-thailand.org/tassa/server/getActivities.php").then((response) => {
             data = response.data
             searchFilter()
             // console.log(newdata)
@@ -28,7 +28,7 @@ export default function Activity() {
     }
     const getgallery = async () => {
         await axios
-            .get(`https://isethailand.org/tassa/server/getimageactivities.php`)
+            .get(`https://ise-thailand.org/tassa/server/getimageactivities.php`)
             .then((response) => {
                 gallery = response.data;
                 // console.log(gallery);

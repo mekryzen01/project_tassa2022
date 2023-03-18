@@ -19,7 +19,7 @@ export default function Asset_all() {
     }
     const getdataebook = async () => {
         await axios
-            .get("https://isethailand.org/tassa/server/getEbook.php")
+            .get("https://ise-thailand.org/tassa/server/getEbook.php")
             .then((response) => {
                 data = response.data;
                 console.log(data)
@@ -60,7 +60,7 @@ export default function Asset_all() {
                         <h1 className="mt-3">{i.assettype_name}</h1>
                    
                 ))}
-                <div className="row">
+                <div className="row my-5">
                     {newdata.map((item, key) => (
                         <>
 

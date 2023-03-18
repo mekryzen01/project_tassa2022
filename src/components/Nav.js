@@ -105,38 +105,38 @@ export default function Header() {
         text="dark"
       >
         <Container className="navbar-container">
-        <Navbar.Brand className="mmss">
-          <Link to="/tassa2022/">
-            <img
-              src="http://www.isethailand.org/tassa/image/logo/logonew.png"
-              alt=""
-              width={"200px"}
-            />
-          </Link>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav
-            className="me-auto nav-links justify-content-end"
-            style={{ width: "100%" }}
-          >
-            <Link to="/tassa2022/" className="nav-link">หน้าหลัก</Link>
-            <NavDropdown
-              title="ศาสตร์ของพระราชา"
-              id="basic-nav-dropdown"
-              show={show01}
-              onMouseEnter={showDropdown01}
-              onMouseLeave={hideDropdown01}
+          <Navbar.Brand className="mmss">
+            <Link to="/tassa2022/">
+              <img
+                src="http://www.ise-thailand.org/tassa/image/logo/logonew.png"
+                alt=""
+                width={"200px"}
+              />
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav
+              className="me-auto nav-links justify-content-end"
+              style={{ width: "100%" }}
             >
-              {filter_menu.map((item, key) => (
-                <NavDropdown.Item key={key}>
-                  <Link to={`/tassa2022/TypeProject/${item.id}`} id="black">
-                    {item.name}
-                  </Link>
-                </NavDropdown.Item>
-              ))}
-            </NavDropdown>
-            {/* <NavDropdown
+              <Link to="/tassa2022/" className="nav-link">หน้าหลัก</Link>
+              <NavDropdown
+                title="ศาสตร์ของพระราชา"
+                id="basic-nav-dropdown"
+                show={show01}
+                onMouseEnter={showDropdown01}
+                onMouseLeave={hideDropdown01}
+              >
+                {filter_menu.map((item, key) => (
+                  <NavDropdown.Item key={key}>
+                    <Link to={`/tassa2022/TypeProject/${item.id}`} id="black">
+                      {item.name}
+                    </Link>
+                  </NavDropdown.Item>
+                ))}
+              </NavDropdown>
+              {/* <NavDropdown
               title="งานวิจัยและพัฒนา"
               id="basic-nav-dropdown"
               show={show02}
@@ -157,33 +157,33 @@ export default function Header() {
               <NavDropdown.Item>Voices of SD</NavDropdown.Item>
               <NavDropdown.Item>Gurus Speak</NavDropdown.Item>
             </NavDropdown> */}
-            {/* <a
+              {/* <a
                 href="https://isethailand.org/tassa/admin/admin_page/list_project.php"
                 target="_blank"
                 className="nav-link"
               >
                 
               </a> */}
-            <NavDropdown
-              title="งานภายใต้สถาบันเศรษฐกิจพอเพียง"
-              id="basic-nav-dropdown"
-              show={show}
-              onMouseEnter={showDropdown}
-              onMouseLeave={hideDropdown}
-            >
-              <NavDropdown.Item
-                target="_blank"
-                href="https://isethailand.org/tassa/admin/admin_page/list_project.php"                >
-                โครงการ/งานวิจัย ภายใต้สถาบันเศรษฐกิจพอเพียง
-              </NavDropdown.Item>
-              {filter_asset.map((item, key) => (
-                <NavDropdown.Item key={key}>
-                  <Link to={`/tassa2022/Asset_all/${item.assetid}`} id="black">
-                    {item.name}
-                  </Link>
+              <NavDropdown
+                title="งานภายใต้สถาบันเศรษฐกิจพอเพียง"
+                id="basic-nav-dropdown"
+                show={show}
+                onMouseEnter={showDropdown}
+                onMouseLeave={hideDropdown}
+              >
+                <NavDropdown.Item
+                  target="_blank"
+                  href="https://ise-thailand.org/tassa/admin/admin_page/list_project.php"                >
+                  โครงการ/งานวิจัย ภายใต้สถาบันเศรษฐกิจพอเพียง
                 </NavDropdown.Item>
-              ))}
-              {/* <NavDropdown.Item href="/tassa2022/Ebook">
+                {filter_asset.map((item, key) => (
+                  <NavDropdown.Item key={key}>
+                    <Link to={`/tassa2022/Asset_all/${item.assetid}`} id="black">
+                      {item.name}
+                    </Link>
+                  </NavDropdown.Item>
+                ))}
+                {/* <NavDropdown.Item href="/tassa2022/Ebook">
                   Ebook
                 </NavDropdown.Item>
                 <NavDropdown.Item
@@ -204,20 +204,20 @@ export default function Header() {
                 >
                   วีดีทัศน์
                 </NavDropdown.Item> */}
-            </NavDropdown>
-            <Link to="/tassa2022/Institute" className="nav-link">
-              สถาบันเศรษฐกิจพอเพียง
-            </Link>
-            <a
-              className="nav-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="http://isethailand.org/tassa/admin/admin_login/signin.php?fbclid=IwAR1GWE_KzXPh-4lmyEUubu5hGrhc0H60vDVyJBafdJR8LZBAGlnyrH-SABk"
-            >
-              เข้าสู่ระบบ
-            </a>
-          </Nav>
-        </Navbar.Collapse>
+              </NavDropdown>
+              <Link to="/tassa2022/Institute" className="nav-link">
+                สถาบันเศรษฐกิจพอเพียง
+              </Link>
+              <a
+                className="nav-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://ise-thailand.org/tassa/admin/admin_login/signin.php?fbclid=IwAR1GWE_KzXPh-4lmyEUubu5hGrhc0H60vDVyJBafdJR8LZBAGlnyrH-SABk"
+              >
+                เข้าสู่ระบบ
+              </a>
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </>
