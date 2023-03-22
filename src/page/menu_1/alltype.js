@@ -58,7 +58,7 @@ export default function Alltype() {
         },
       ]);
     }
-    console.log(newdata);
+    // console.log(newdata);
   };
   const showcontent = () => {
     return (

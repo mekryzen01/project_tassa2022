@@ -50,7 +50,7 @@ export default function Main() {
         datasets: [],
     });
     // console.log(dataActivities)
-    console.log(datavideo)
+    // console.log(datavideo)
 
     useEffect(() => {
         getstart()
@@ -93,7 +93,7 @@ export default function Main() {
             .get("https://ise-thailand.org/tassa/server/chart01.php")
             .then((result) => {
                 userdata01 = result.data;
-                console.log(userdata01)
+                // console.log(userdata01)
                 setDonutuser(userdata01);
             })
             .catch((err) => {

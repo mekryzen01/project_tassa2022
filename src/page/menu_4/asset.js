@@ -6,7 +6,7 @@ let data = []
 export default function Asset_all() {
     const id = useParams();
     const dataid = id.id;
-    console.log(dataid);
+    // console.log(dataid);
 
 
     const [showData, setshowData] = useState([]);
@@ -22,7 +22,7 @@ export default function Asset_all() {
             .get("https://ise-thailand.org/tassa/server/getEbook.php")
             .then((response) => {
                 data = response.data;
-                console.log(data)
+                // console.log(data)
                 searchFilter();
             }).catch((err) => {
                 console.error(err);
@@ -50,7 +50,7 @@ export default function Asset_all() {
                 },
             ]);
         }
-        console.log(newdata);
+        // console.log(newdata);
     };
     return (
         <>
