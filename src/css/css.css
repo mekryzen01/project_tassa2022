@@ -368,3 +368,17 @@ h2 span {
 #textheader{
   font-size: 20px;
 }
+
+  @media screen and (min-width: 200px) and (max-width: 1000px) {
+    .newlink{
+      margin-top: 2rem !important;
+    }
+  }
+@media screen and (min-width: 1001px) {
+   
+  .newlink{
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+  }
+
+}

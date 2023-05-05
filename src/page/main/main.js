@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Fade } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import '../../css/css.css'
+import "../../css/css.css";
 import { Doughnut } from "react-chartjs-2";
 import {
     Chart as ChartJS,
@@ -30,8 +30,8 @@ let userdata01 = [];
 let userdata02 = [];
 let userdata03 = [];
 export default function Main() {
-    const [dataActivities, setdataActivities] = useState([])
-    const [datavideo, setDatavideo] = useState([])
+    const [dataActivities, setdataActivities] = useState([]);
+    const [datavideo, setDatavideo] = useState([]);
     const [donutuser, setDonutuser] = useState([]);
     const [chartOptions, setChartOptions] = useState({});
     const [barmonk, setBarmonk] = useState([]);
@@ -53,8 +53,8 @@ export default function Main() {
     // console.log(datavideo)
 
     useEffect(() => {
-        getstart()
-    }, [])
+        getstart();
+    }, []);
 
     async function getstart() {
         await getActivities();
@@ -66,27 +66,33 @@ export default function Main() {
         await getdataChatroyal();
         await getchartroyal();
         await getdataChatres();
-
     }
     async function getActivities() {
-        await axios.get("https://ise-thailand.org/tassa/server/getActivities.php").then((response) => {
-            setdataActivities(response.data)
-        })
+        await axios
+            .get("https://ise-thailand.org/tassa/server/getActivities.php")
+            .then((response) => {
+                setdataActivities(response.data);
+            });
     }
 
     async function get03() {
-        await axios.get("https://ise-thailand.org/tassa/server/chart03.php").then((response) => setRoyal(response.data))
+        await axios
+            .get("https://ise-thailand.org/tassa/server/chart03.php")
+            .then((response) => setRoyal(response.data));
     }
 
-
     async function getmeta() {
-        await axios.get("https://ise-thailand.org/tassa/server/getmeta.php").then((response) => setMeta(response.data))
+        await axios
+            .get("https://ise-thailand.org/tassa/server/getmeta.php")
+            .then((response) => setMeta(response.data));
     }
 
     async function getvideo() {
-        await axios.get("https://ise-thailand.org/tassa/server/getvideo.php").then((res) => {
-            setDatavideo(res.data)
-        })
+        await axios
+            .get("https://ise-thailand.org/tassa/server/getvideo.php")
+            .then((res) => {
+                setDatavideo(res.data);
+            });
     }
     const getdataChatAsset = async () => {
         await axios
@@ -102,20 +108,29 @@ export default function Main() {
     };
     const getchart = async () => {
         setChartData({
-            labels: userdata01.map((item) => item.assettype_name + " " + "จำนวน" + " " + item.countall + " " + "เรื่อง"),
+            labels: userdata01.map(
+                (item) =>
+                    item.assettype_name +
+                    " " +
+                    "จำนวน" +
+                    " " +
+                    item.countall +
+                    " " +
+                    "เรื่อง"
+            ),
             datasets: [
                 {
                     label: userdata01.map((item) => item.assettype_name),
                     data: userdata01.map((item) => item.countall),
                     borderColor: [
-                        'rgba(255, 99, 132 )',
-                        'rgba(54, 162, 235)',
-                        'rgba(255, 206, 86)',
+                        "rgba(255, 99, 132 )",
+                        "rgba(54, 162, 235)",
+                        "rgba(255, 206, 86)",
                     ],
                     backgroundColor: [
-                        'rgba(255, 99, 132)',
-                        'rgba(54, 162, 235)',
-                        'rgba(255, 206, 86)',
+                        "rgba(255, 99, 132)",
+                        "rgba(54, 162, 235)",
+                        "rgba(255, 206, 86)",
                     ],
                 },
             ],
@@ -145,20 +160,19 @@ export default function Main() {
             labels: userdata02.map((item) => item.type_name),
             datasets: [
                 {
-                    label: '',
+                    label: "",
                     data: userdata02.map((item) => item.countall),
                     borderColor: [
-                        'rgba(255, 99, 132)',
-                        'rgba(54, 162, 235)',
-                        'rgba(255, 206, 86)',
-                        'rgba(155, 206, 86)',
-
+                        "rgba(255, 99, 132)",
+                        "rgba(54, 162, 235)",
+                        "rgba(255, 206, 86)",
+                        "rgba(155, 206, 86)",
                     ],
                     backgroundColor: [
-                        'rgba(255, 99, 132)',
-                        'rgba(54, 162, 235)',
-                        'rgba(255, 206, 86)',
-                        'rgba(155, 206, 86)',
+                        "rgba(255, 99, 132)",
+                        "rgba(54, 162, 235)",
+                        "rgba(255, 206, 86)",
+                        "rgba(155, 206, 86)",
                     ],
                 },
             ],
@@ -171,7 +185,14 @@ export default function Main() {
                 },
                 title: {
                     display: true,
-                    text: "โครงการภายใต้สถาบันเศรษฐกิจพอเพียง" + " " + "จำนวน" + " " + "26" + " " + "โครงการ",
+                    text:
+                        "โครงการภายใต้สถาบันเศรษฐกิจพอเพียง" +
+                        " " +
+                        "จำนวน" +
+                        " " +
+                        "26" +
+                        " " +
+                        "โครงการ",
                 },
             },
         });
@@ -193,23 +214,29 @@ export default function Main() {
                 <div className="row my-3 mb-2 pb-5">
                     <div className="col-12 col-md-6 col-lg-6">
                         {datavideo.map((i, k) => (
-                            <div className="row"><iframe
-                                width="100%"
-                                height="330px"
-                                src={i.video_url}
-                                title="YouTube video player"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                                className="mt-3"
-                            ></iframe></div>
+                            <div className="row">
+                                <iframe
+                                    width="100%"
+                                    height="330px"
+                                    src={i.video_url}
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowFullScreen
+                                    className="mt-3"></iframe>
+                            </div>
                         ))}
                     </div>
                     <div className="col-12 col-md-6 col-lg-6">
                         <div className="row">
                             {dataActivities.map((item, index) => (
-                                <div className="col-12 col-md-6 col-lg-6 text-center my-3" key={index}>
+                                <div
+                                    className="col-12 col-md-6 col-lg-6 text-center my-3"
+                                    key={index}>
                                     <Link to={`/tassa2022/TypeActivities/${item.typeact_id}`}>
-                                        <div className="card shadow bg-body" id="hover1" style={{ width: "100%" }}>
+                                        <div
+                                            className="card shadow bg-body"
+                                            id="hover1"
+                                            style={{ width: "100%" }}>
                                             <div className="card-body">
                                                 <div className="row justify-content-center">
                                                     <img src={item.imagetype} alt="" width="100%" />
@@ -230,47 +257,268 @@ export default function Main() {
                                 </div>
                             </div>
                             <div className="col-12 col-md-4 col-lg-6 mt-3">
-                                <div className="card" style={{ width: "100%", height: "160px,auto" }}>
+                                <div
+                                    className="card"
+                                    style={{ width: "100%", height: "160px,auto" }}>
                                     <div className="card-body">
                                         <div className="text-center">
                                             <p>นักวิจัย</p>
                                             {userdata03.map((i, k) => (
-                                                <h1><b>{i.countall}</b></h1>
+                                                <h1>
+                                                    <b>{i.countall}</b>
+                                                </h1>
                                             ))}
                                         </div>
                                     </div>
                                 </div>
                                 <br />
                                 <br />
-                                <div className="card" style={{ width: "100%", height: "160px,auto" }}>
+                                <div
+                                    className="card"
+                                    style={{ width: "100%", height: "160px,auto" }}>
                                     <div className="card-body">
                                         <div className="text-center">
                                             <p>โครงการพระราชดำริ</p>
                                             {royal.map((i) => (
-                                                <h1><b>{i.countall}</b></h1>
+                                                <h1>
+                                                    <b>{i.countall}</b>
+                                                </h1>
                                             ))}
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-12 col-md-6 col-lg-12  mt-2">
+                            <div className="col-12 col-md-6 col-lg-12  mt-3">
                                 <div className="card" style={{ width: "100%" }}>
                                     <div className="card-body">
                                         <div className="text-center">
-                                            <b id="textheader" >สื่อการเรียนรู้เสมือนจริง</b>
+                                            <b id="textheader">สื่อการเรียนรู้เสมือนจริง</b>
                                         </div>
                                         {meta.map((i, k) => (
                                             <div className="row">
                                                 <div className="col-12 col-md-6 col-lg-12 mt-2" key={k}>
                                                     <button className="btn btn-">
-                                                         <a href={i.video} target="_blank" id="black">
-                                                        <h5>{i.meta_name}</h5>
-                                                    </a>
+                                                        <a href={i.video} target="_blank" id="black">
+                                                            <h5>{i.meta_name}</h5>
+                                                        </a>
                                                     </button>
-                                                   
                                                 </div>
                                             </div>
                                         ))}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 col-md-6 col-lg-12  newlink">
+                                <div className="card" style={{ width: "100%" }}>
+                                    <div className="card-body">
+                                        <b id="textheader">
+                                            การพัฒนาและยกระดับศักยภาพและความเข้มแข็งของชุมชนตามหลักปรัชญาเศรษฐกิจพอเพียง
+                                            ในจังหวัดกาญจนบุรี
+                                        </b>
+                                        <p>
+                                            {" "}
+                                            <img
+                                                src="http://www.ise-thailand.org/tassa/image/location.png"
+                                                width={"4%"}
+                                            />{" "}
+                                            ชุมชนบ้านหนองปลวก ตําบลทุ่งทอง, ชุมชนบ้านหนองสะแก
+                                            ตําบลวังศาลา อําเภอท่าม่วง จังหวัดกาญจนบุรี
+                                        </p>
+
+                                        <div className="row justify-content-center">
+                                            <div className="col-12 col-md-4 col-lg-4">
+                                                <div className="text-center">
+                                                    <a
+                                                        className="btn btn-success form-control"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        href="https://thai-cdm-sep.com/view/project/project-8">
+                                                        รายละเอียดเพิ่มเติม
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 col-md-6 col-lg-12  newlink">
+                                <div className="card" style={{ width: "100%" }}>
+                                    <div className="card-body">
+                                        <b id="textheader">
+                                            การพัฒนาชุมชนต้นแบบเกษตรอินทรีย์ตามแนวปรัชญาเศรษฐกิจพอเพียงของวิสาหกิจชุมชนอำเภอแก่งหางแมว
+                                            จังหวัดจันทบุรี สู่การพัฒนาอย่างยั่งยืนตามแนวคิดของ BCG
+                                        </b>
+                                        <p>
+                                            <img
+                                                src="http://www.ise-thailand.org/tassa/image/location.png"
+                                                width={"4%"}
+                                            />
+                                            ชุมชนแก่งหางแมว หมู่ 4 บ้านลานทอง ตำบลเขาวงกต
+                                            อำเภอแก่งหางแมว จังหวัดจันทบุรี
+                                        </p>
+                                        <div className="row justify-content-center">
+                                            <div className="col-12 col-md-4 col-lg-4">
+                                                <div className="text-center">
+                                                    <a
+                                                        className="btn btn-success form-control"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        href="https://thai-cdm-sep.com/view/project/project-4">
+                                                        รายละเอียดเพิ่มเติม
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 col-md-6 col-lg-12  newlink">
+                                <div className="card" style={{ width: "100%" }}>
+                                    <div className="card-body">
+                                        <b id="textheader">
+                                            การพัฒนานวัตกรรมเพื่อเพิ่มผลผลิตพืชผักปลอดสารพิษสำหรับเมืองและชุมชนสู่ความยั่งยืนบนพื้นฐานเชียงรายเมืองเกษตรสีเขียวและอาหารปลอดภัย
+                                            สำหรับผู้สูงอายุในภาคเหนือ
+                                        </b>
+                                        <p>
+                                            <img
+                                                src="http://www.ise-thailand.org/tassa/image/location.png"
+                                                width={"4%"}
+                                            />
+                                            ชุมชนบ้านหัวฝาย ต.สันกลาง อ.พาน จ.เชียงราย
+                                        </p>
+                                        <div className="row justify-content-center">
+                                            <div className="col-12 col-md-4 col-lg-4">
+                                                <div className="text-center">
+                                                    <a
+                                                        className="btn btn-success form-control"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        href="https://thai-cdm-sep.com/view/project/project-9">
+                                                        รายละเอียดเพิ่มเติม
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 col-md-6 col-lg-12   newlink">
+                                <div className="card" style={{ width: "100%" }}>
+                                    <div className="card-body">
+                                        <b id="textheader">
+                                            โครงการพัฒนาเทคโนโลยีและนวัตกรรมสนับสนุนการท่องเที่ยวชุมชนเกาะยาวน้อย
+                                            สู่ความยั่งยืนด้วยหลักเศรษฐกิจพอเพียง
+                                        </b>
+                                        <p>
+
+                                            <img
+                                                src="http://www.ise-thailand.org/tassa/image/location.png"
+                                                width={"4%"}
+                                            />
+                                            บ้านน้ำจืด ตำบลเกาะยาวน้อย อำเภอเกาะยาว จังหวัดพังงา
+                                        </p>
+                                        <div className="row justify-content-center">
+                                            <div className="col-12 col-md-4 col-lg-4">
+                                                <div className="text-center">
+                                                    <a
+                                                        className="btn btn-success form-control"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        href="https://thai-cdm-sep.com/view/project/project-6">
+                                                        รายละเอียดเพิ่มเติม
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 col-md-6 col-lg-12   newlink">
+                                <div className="card" style={{ width: "100%" }}>
+                                    <div className="card-body">
+                                        <b id="textheader">
+                                            การส่งเสริมและพัฒนาผลิตภัณฑ์ผ้าย้อมครามและผ้าย้อมสีธรรมชาติโดยใช้แนวคิดในการออกแบบและรูปแบบธุรกิจอย่างยั่งยืนและเป็นมิตรกับสิ่งแวดล้อม
+                                        </b>
+                                        <p>
+
+                                            <img
+                                                src="http://www.ise-thailand.org/tassa/image/location.png"
+                                                width={"4%"}
+                                            />
+                                            ชุมชนบ้านดอนกอย ตำบลสว่าง อำเภอพรรณานิคม จังหวัดสกลนคร
+                                        </p>
+                                        <div className="row justify-content-center">
+                                            <div className="col-12 col-md-4 col-lg-4">
+                                                <div className="text-center">
+                                                    <a
+                                                        className="btn btn-success form-control"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        href="https://thai-cdm-sep.com/view/project/project-3">
+                                                        รายละเอียดเพิ่มเติม
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 col-md-6 col-lg-12   newlink">
+                                <div className="card" style={{ width: "100%" }}>
+                                    <div className="card-body">
+                                        <b id="textheader">
+                                            การยกระดับคุณภาพชีวิตภายใต้ปรัชญาของเศรษฐกิจพอเพียงด้วยโมเดลสีเขียว ตำบลลาดใหญ่ อำเภอเมือง จังหวัดสมุทรสงคราม                                        </b>
+                                        <p>
+
+                                            <img
+                                                src="http://www.ise-thailand.org/tassa/image/location.png"
+                                                width={"4%"}
+                                            />
+                                            หมู่บ้านสุนัขหอน หมู่ 8 ตำบลลาดใหญ่ อำเภอเมือง จังหวัดสมุทรสงคราม
+                                        </p>
+                                        <div className="row justify-content-center">
+                                            <div className="col-12 col-md-4 col-lg-4">
+                                                <div className="text-center">
+                                                    <a
+                                                        className="btn btn-success form-control"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        href="https://thai-cdm-sep.com/view/project/project-7">
+                                                        รายละเอียดเพิ่มเติม
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 col-md-6 col-lg-12   newlink">
+                                <div className="card" style={{ width: "100%" }}>
+                                    <div className="card-body">
+                                        <b id="textheader">
+                                            การพัฒนารูปแบบการจัดการการท่องเที่ยวโดยชุมชนบนฐานเศรษฐกิจพอเพียงในพื้นที่ชุมชนตำบลต้นตาล จังหวัดสุพรรณบุรี สู่การพัฒนาอย่างยั่งยืนตามแนวคิดของ BCG                                      </b>
+                                        <p>
+
+                                            <img
+                                                src="http://www.ise-thailand.org/tassa/image/location.png"
+                                                width={"4%"}
+                                            />
+                                            ชุมชนต้นตาล ตำบลต้นตาล อำเภอสองพี่น้อง จังหวัดสุพรรณบุรี
+                                        </p>
+                                        <div className="row justify-content-center">
+                                            <div className="col-12 col-md-4 col-lg-4">
+                                                <div className="text-center">
+                                                    <a
+                                                        className="btn btn-success form-control"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        href="https://thai-cdm-sep.com/view/project/project-2">
+                                                        รายละเอียดเพิ่มเติม
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
