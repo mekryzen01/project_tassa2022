@@ -87,7 +87,7 @@ export default function Activity() {
                 <div className="col-12 col-md-4 col-lg-4 my-2" key={k++}>
                     <img
                         src={i.act_imgname}
-                        style={{ height: 220 }}
+                        style={{ height: 300 }}
                         width="100%"
                         data-lightboxjs="lightbox1"
                         quality="100%"

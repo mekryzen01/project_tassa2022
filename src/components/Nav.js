@@ -136,34 +136,6 @@ export default function Header() {
                   </NavDropdown.Item>
                 ))}
               </NavDropdown>
-              {/* <NavDropdown
-              title="งานวิจัยและพัฒนา"
-              id="basic-nav-dropdown"
-              show={show02}
-              onMouseEnter={showDropdown02}
-              onMouseLeave={hideDropdown02}
-            >
-              <NavDropdown.Item>โดยสถาบันเศรษฐกิจพอเพียง</NavDropdown.Item>
-              <NavDropdown.Item>โดยภาคีเครือข่าย</NavDropdown.Item>
-              <NavDropdown.Item>โดยองค์กรในต่างประเทศ</NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown
-              title="สาระการพัฒนา"
-              id="basic-nav-dropdown"
-              show={show03}
-              onMouseEnter={showDropdown03}
-              onMouseLeave={hideDropdown03}
-            >
-              <NavDropdown.Item>Voices of SD</NavDropdown.Item>
-              <NavDropdown.Item>Gurus Speak</NavDropdown.Item>
-            </NavDropdown> */}
-              {/* <a
-                href="https://isethailand.org/tassa/admin/admin_page/list_project.php"
-                target="_blank"
-                className="nav-link"
-              >
-                
-              </a> */}
               <NavDropdown
                 title="งานภายใต้สถาบันเศรษฐกิจพอเพียง"
                 id="basic-nav-dropdown"
@@ -183,27 +155,6 @@ export default function Header() {
                     </Link>
                   </NavDropdown.Item>
                 ))}
-                {/* <NavDropdown.Item href="/tassa2022/Ebook">
-                  Ebook
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  target="_blank"
-                  href="https://isethailand.org/tassa/admin/listasset.php?id=02&fbclid=IwAR3wAIPS63zsVv97s3WAAXLKNFm4Z0JBSBskXRuTDnnO7RLuCJObs7aPfwA"
-                >
-                  ผลงานวิชาการ
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  target="_blank"
-                  href="https://isethailand.org/tassa/admin/listasset.php?id=03&fbclid=IwAR15vLvPiCK3o5NTVrFZzA_TqOiYh93Nhyo2YGJbcwMg3f6TgCNxWa9elhg"
-                >
-                  นวัตกรรมการเรียนรู้
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  target="_blank"
-                  href="https://isethailand.org/tassa/admin/listasset.php?id=04&fbclid=IwAR0cyznGauquPfQFKy18Rz0JYMcDKR79Ggjcv4xggnELP7W6LAfjRzVXnjs"
-                >
-                  วีดีทัศน์
-                </NavDropdown.Item> */}
               </NavDropdown>
               <Link to="/tassa2022/Institute" className="nav-link">
                 สถาบันเศรษฐกิจพอเพียง

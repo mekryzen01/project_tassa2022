@@ -211,7 +211,7 @@ export default function Main() {
     return (
         <>
             <div className="container">
-                <div className="row my-3 mb-2 pb-5">
+                <div className="row my-1  ">
                     <div className="col-12 col-md-6 col-lg-6">
                         {datavideo.map((i, k) => (
                             <div className="row">
@@ -316,15 +316,13 @@ export default function Main() {
                                             ในจังหวัดกาญจนบุรี
                                         </b>
                                         <p>
-                                            {" "}
                                             <img
                                                 src="http://www.ise-thailand.org/tassa/image/location.png"
                                                 width={"4%"}
-                                            />{" "}
+                                            />
                                             ชุมชนบ้านหนองปลวก ตําบลทุ่งทอง, ชุมชนบ้านหนองสะแก
                                             ตําบลวังศาลา อําเภอท่าม่วง จังหวัดกาญจนบุรี
                                         </p>
-
                                         <div className="row justify-content-center">
                                             <div className="col-12 col-md-4 col-lg-4">
                                                 <div className="text-center">
@@ -534,6 +532,7 @@ export default function Main() {
                         </div>
                     </div>
                 </div>
+                <br />
             </div>
         </>
     );
