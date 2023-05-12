@@ -240,8 +240,9 @@ h2 span {
   margin: 20px;
   text-align: center;
   border: 2px solid transparent;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 1rem;
+  font-weight: bold;
 }
 
 .nav-link:hover,

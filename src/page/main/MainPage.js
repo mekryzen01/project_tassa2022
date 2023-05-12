@@ -29,7 +29,7 @@ ChartJS.register(
 let userdata01 = [];
 let userdata02 = [];
 let userdata03 = [];
-export default function Main() {
+export default function MainPage() {
     const [dataActivities, setdataActivities] = useState([]);
     const [datavideo, setDatavideo] = useState([]);
     const [donutuser, setDonutuser] = useState([]);

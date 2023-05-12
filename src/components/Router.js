@@ -4,7 +4,7 @@ import Research from "../page/notuse/research_and_development";
 import Institute from "../page/menu_5/institution";
 import Footer from "./footer";
 import Alltype from "../page/menu_1/alltype";
-import Main from "../page/main/main";
+import MainPage from "../page/main/MainPage";
 import Kingscience from "../page/menu_1/King_science";
 import SEP from "../page/notuse/SEP";
 import Typeactivities from "../page/main/typeactivities";
@@ -18,7 +18,7 @@ export default function Router() {
     <div className="App">
       <Header/>
       <Routes >
-        <Route path="/tassa2022" element={<Main />} />
+        <Route path="/tassa2022" element={<MainPage />} />
         <Route path="/tassa2022/King" element={<Kingscience />} />
         <Route path="/tassa2022/Research" element={<Research />} />
         <Route path="/tassa2022/Institute" element={<Institute />} />
